@@ -3,17 +3,7 @@ using System.Text;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
-//Sending
-var factory = new ConnectionFactory { HostName = "localhost" };
-using var connection = await factory.CreateConnectionAsync();
-using var channel = await connection.CreateChannelAsync();
 
-await channel.QueueDeclareAsync
-    (queue: "hello", 
-    durable: false, 
-    exclusive: false, 
-    autoDelete: false,
-    arguments: null);
 class Program
 {
     static async Task Main()
